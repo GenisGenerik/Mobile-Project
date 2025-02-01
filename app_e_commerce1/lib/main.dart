@@ -1,4 +1,5 @@
-import 'package:app_e_commerce1/page/cart.dart';
+
+import 'package:app_e_commerce1/page/search.dart';
 
 
 import 'package:app_e_commerce1/util/ukuranlayar.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Builder(builder: (context){
         Ukuranlayar.init(context);
-        return Cart();
+        return Search();
       }),
     );
   }
