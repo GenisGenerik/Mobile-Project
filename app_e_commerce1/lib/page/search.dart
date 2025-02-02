@@ -29,6 +29,7 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SingleChildScrollView(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15),
@@ -36,9 +37,7 @@ class _SearchState extends State<Search> {
           spacing: 20,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 30,
-            ),
+           
             search(),
             rekomendasi(rekomenSearch),
             judul("Sedang Ramai Di bicarakan"),

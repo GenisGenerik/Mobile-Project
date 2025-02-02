@@ -1,3 +1,6 @@
+
+import 'package:app_e_commerce1/page/p.dart';
+import 'package:app_e_commerce1/page/search.dart';
 import 'package:app_e_commerce1/util/ukuranlayar.dart';
 import 'package:app_e_commerce1/util/utilitas.dart';
 import 'package:flutter/material.dart';
@@ -99,7 +102,13 @@ class _UtamaState extends State<Utama> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Container(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Search();
+                },));
+              },
+              child: Container(
               width: Ukuranlayar.widht / 1.3,
               height: Ukuranlayar.widht / 9,
               decoration: BoxDecoration(
@@ -125,6 +134,7 @@ class _UtamaState extends State<Utama> {
                 ],
               ),
             ),
+            )
           ),
           Padding(
             padding: const EdgeInsets.only(left: 10),
@@ -282,7 +292,13 @@ class _UtamaState extends State<Utama> {
   }
 
   Widget produkCard(String gambar, int index) {
-    return Container(
+    return GestureDetector(
+      onTap: () {
+         Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return Detailproduk();
+        },));
+      },
+      child: Container(
         width: 160,
         height: 280,
         decoration: BoxDecoration(
@@ -370,7 +386,8 @@ class _UtamaState extends State<Utama> {
               )
             ],
           ),
-        ));
+        )),
+    );
   }
 
   Widget bottomNavbar() {
