@@ -1,4 +1,5 @@
 
+
 import 'package:flutter/material.dart';
 
 class Produk extends StatefulWidget {
@@ -15,7 +16,7 @@ class _ProdukState extends State<Produk> {
       appBar: AppBar(),
       body: SingleChildScrollView(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: EdgeInsets.symmetric(horizontal: 5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -23,9 +24,7 @@ class _ProdukState extends State<Produk> {
           children: [
             search(),
            Wrap(
-              runSpacing: 15,
-              spacing: 15,
-              
+              runSpacing: 5,    
               children: List.generate(10, (index) {
                 return cardProduk();
               },)
@@ -48,8 +47,8 @@ class _ProdukState extends State<Produk> {
 
   Widget cardProduk() {
     return SizedBox(
-              height: 220,
-              width: 170,
+              width: MediaQuery.of(context).size.width/2-10,
+              height: MediaQuery.of(context).size.width/1.5,
               child: Card(
                 
                 clipBehavior: Clip.antiAlias,
@@ -64,13 +63,26 @@ class _ProdukState extends State<Produk> {
                   fit: BoxFit.cover,
                 ),),
                 Expanded(flex: 2,child: Padding(padding: EdgeInsets.symmetric(horizontal: 10),child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,spacing: 5,
                   children: [
-                    Expanded(flex: 1, child: Text("data")),
-                    Expanded(flex: 1, child: Text("data")),
-                    Expanded(flex: 1, child: Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Expanded(flex: 2, child: Text("Sepatu Adidasasasdasdsad",maxLines: 2,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 14,))),
+
+                    Expanded(flex: 1, child:Row(
                       children: [
-                      Text("data"),Text("data")
+                        Expanded(flex: 1, child: Container( color: Colors.yellow,child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [Icon(Icons.favorite,size: 10,),Text("Populer",style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),overflow: TextOverflow.fade,)],
+                        ),)),
+                        Expanded(flex: 1, child: Container(color: Colors.blue,child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [Icon(Icons.discount,size: 10,),Text("Top Seller",style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),overflow: TextOverflow.fade,)],
+                        ),)),
+                      ],
+                    )),
+                    Expanded(flex: 2, child: Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+
+                      Text("Rp.100.000",style: TextStyle(fontWeight: FontWeight.bold)),Text("10rb+ Terjual",style: TextStyle(fontSize: 10),)
                     ],)),
                   ],
                 ),)),

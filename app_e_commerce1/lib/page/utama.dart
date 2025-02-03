@@ -1,7 +1,10 @@
 
-import 'package:app_e_commerce1/page/p.dart';
+
+import 'package:app_e_commerce1/page/cart.dart';
+import 'package:app_e_commerce1/page/detailproduk.dart';
+import 'package:app_e_commerce1/page/produk.dart';
 import 'package:app_e_commerce1/page/search.dart';
-import 'package:app_e_commerce1/util/ukuranlayar.dart';
+
 import 'package:app_e_commerce1/util/utilitas.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +16,12 @@ class Utama extends StatefulWidget {
 }
 
 class _UtamaState extends State<Utama> {
+
+
+
+
+
+
   PageController slidepage = PageController();
   Future page() {
     return Future.delayed(
@@ -50,11 +59,11 @@ class _UtamaState extends State<Utama> {
   ];
 
   List navBttomBttn = [
-    {'index': 0, 'icon': Icons.home_outlined},
-    {'index': 1, 'icon': Icons.search_outlined},
-    {'index': 2, 'icon': Icons.shopping_bag_outlined},
-    {'index': 3, 'icon': Icons.favorite_outline_outlined},
-    {'index': 4, 'icon': Icons.line_style_outlined},
+    {'index': 0, 'icon': Icons.home_outlined,'page':Utama()},
+    {'index': 1, 'icon': Icons.search_outlined,'page':Search()},
+    {'index': 2, 'icon': Icons.shopping_bag_outlined,'page':Cart()},
+    {'index': 3, 'icon': Icons.favorite_outline_outlined,'page':Utama()},
+    {'index': 4, 'icon': Icons.line_style_outlined,'page':Utama()},
   ];
 
   List produk = [
@@ -74,6 +83,7 @@ class _UtamaState extends State<Utama> {
   void initState() {
     super.initState();
     page();
+    navBotBttmPosisition = 0;
   }
 
   @override
@@ -95,9 +105,9 @@ class _UtamaState extends State<Utama> {
 
   Widget appbar() {
     return Container(
-      margin: EdgeInsets.only(top: Ukuranlayar.height / 35),
-      width: Ukuranlayar.widht,
-      height: Ukuranlayar.height / 14,
+      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 35),
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height / 14,
       child: Row(
         children: [
           Padding(
@@ -109,8 +119,8 @@ class _UtamaState extends State<Utama> {
                 },));
               },
               child: Container(
-              width: Ukuranlayar.widht / 1.3,
-              height: Ukuranlayar.widht / 9,
+              width: MediaQuery.of(context).size.width / 1.3,
+              height: MediaQuery.of(context).size.width / 9,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white,
@@ -140,8 +150,8 @@ class _UtamaState extends State<Utama> {
             padding: const EdgeInsets.only(left: 10),
             child: GestureDetector(
               child: SizedBox(
-                width: Ukuranlayar.widht / 9,
-                height: Ukuranlayar.widht / 9,
+                width: MediaQuery.of(context).size.width / 9,
+                height: MediaQuery.of(context).size.width / 9,
                 child: ClipOval(
                   child: Image.asset(
                     "images/dummy.jpg",
@@ -173,8 +183,8 @@ class _UtamaState extends State<Utama> {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: SizedBox(
-            width: Ukuranlayar.widht,
-            height: Ukuranlayar.height / 4,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height / 4,
             child: Stack(
               children: [
                 PageView.builder(
@@ -216,9 +226,15 @@ class _UtamaState extends State<Utama> {
   }
 
   Widget navbar() {
-    return Container(
-      width: Ukuranlayar.widht,
-      height: Ukuranlayar.height / 12,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return Produk();
+        },));
+
+      },child:Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height / 12,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
       ),
@@ -230,13 +246,14 @@ class _UtamaState extends State<Utama> {
               return navbutton(navbttn[index]['gambar'], index);
             },
           )),
+    ) ,
     );
   }
 
   Widget navbutton(String gambar, int index) {
     return Container(
-      width: Ukuranlayar.widht / 7,
-      height: Ukuranlayar.widht / 7,
+      width: MediaQuery.of(context).size.width / 7,
+      height: MediaQuery.of(context).size.width / 7,
       decoration: BoxDecoration(
         color: warnaBackground,
         borderRadius: BorderRadius.circular(10),
@@ -251,7 +268,7 @@ class _UtamaState extends State<Utama> {
   Widget body() {
     return Container(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        height: Ukuranlayar.height / 1.2,
+        height: MediaQuery.of(context).size.height / 1.2,
         child: Column(
           spacing: 20,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -295,7 +312,7 @@ class _UtamaState extends State<Utama> {
     return GestureDetector(
       onTap: () {
          Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return Detailproduk();
+          return DetailProduk();
         },));
       },
       child: Container(
@@ -410,11 +427,19 @@ class _UtamaState extends State<Utama> {
       onTap: () {
         setState(() {
           navBotBttmPosisition = index;
+          
         });
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return navBttomBttn[index]['page'] ;
+            },)).then((_){
+              setState(() {
+                navBotBttmPosisition=0;
+              });
+            });
       },
       child: Container(
-        width: Ukuranlayar.widht / 6,
-        height: Ukuranlayar.widht / 6,
+        width: MediaQuery.of(context).size.width / 6,
+        height: MediaQuery.of(context).size.width / 6,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: navBotBttmPosisition == index ? Colors.blue : warnaBackground,

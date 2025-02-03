@@ -1,9 +1,11 @@
 
+
+import 'package:app_e_commerce1/page/cart.dart';
+import 'package:app_e_commerce1/page/detailproduk.dart';
 import 'package:app_e_commerce1/page/produk.dart';
+import 'package:app_e_commerce1/page/search.dart';
+import 'package:app_e_commerce1/page/utama.dart';
 
-
-
-import 'package:app_e_commerce1/util/ukuranlayar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,12 +20,15 @@ class MyApp extends StatelessWidget {
     
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Builder(builder: (context){
-        Ukuranlayar.init(context);
-        return Produk(
-
-        );
-      }),
+      title: 'Aplikasi Ecommers',
+      initialRoute: '/',
+      routes: {
+        '/' : (context) => Utama(),
+        '/search' :(context) =>Search(),
+        '/produk' : (context) =>Produk(),
+        '/detailproduk':(context)=>DetailProduk(),
+        '/cart':(context)=>Cart()
+      },
     );
   }
 }

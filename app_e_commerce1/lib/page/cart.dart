@@ -1,4 +1,4 @@
-import 'package:app_e_commerce1/util/ukuranlayar.dart';
+
 import 'package:app_e_commerce1/util/utilitas.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +25,7 @@ class _CartState extends State<Cart> {
                       10,
                       (index) {
                         return Container(
-                          width: Ukuranlayar.widht,
+                          width: MediaQuery.of(context).size.width,
                           height: 100,
                           decoration: BoxDecoration(
                               border: Border.all(
@@ -114,7 +114,7 @@ class _CartState extends State<Cart> {
             Expanded(
                 flex: 1,
                 child: Container(
-                  width: Ukuranlayar.widht,
+                  width: MediaQuery.of(context).size.width,
                   color: warnaBackground,
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: Column(

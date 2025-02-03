@@ -1,4 +1,5 @@
-import 'package:app_e_commerce1/util/ukuranlayar.dart';
+import 'package:app_e_commerce1/page/cart.dart';
+
 import 'package:app_e_commerce1/util/utilitas.dart';
 import 'package:flutter/material.dart';
 
@@ -60,7 +61,9 @@ class _DetailProdukState extends State<DetailProduk> {
               ),
               child: IconButton(
                 onPressed: () {
-                 
+                 Navigator.push(context, MaterialPageRoute(builder: (context) {
+                   return Cart();
+                 },));
                 },
                 icon: Icon(
                   Icons.add_shopping_cart_outlined,
@@ -77,9 +80,9 @@ class _DetailProdukState extends State<DetailProduk> {
 
   Widget appbar() {
     return Container(
-      margin: EdgeInsets.only(top: Ukuranlayar.height / 35),
-      width: Ukuranlayar.widht,
-      height: Ukuranlayar.height / 14,
+      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 35),
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height/ 14,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -89,8 +92,8 @@ class _DetailProdukState extends State<DetailProduk> {
               onTap: () {
               Navigator.pop(context);
               },child:  Container(
-              width: Ukuranlayar.widht / 9,
-              height: Ukuranlayar.widht / 9,
+              width: MediaQuery.of(context).size.width / 9,
+              height: MediaQuery.of(context).size.width / 9,
               decoration: BoxDecoration(
                   color: warnaBackground,
                   borderRadius: BorderRadius.circular(10)),
@@ -105,8 +108,8 @@ class _DetailProdukState extends State<DetailProduk> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: GestureDetector(
                 child: Container(
-                    width: Ukuranlayar.widht / 9,
-                    height: Ukuranlayar.widht / 9,
+                    width: MediaQuery.of(context).size.width / 9,
+                    height: MediaQuery.of(context).size.width / 9,
                     decoration: BoxDecoration(
                         color: warnaBackground,
                         borderRadius: BorderRadius.circular(10)),
@@ -134,12 +137,12 @@ class _DetailProdukState extends State<DetailProduk> {
       margin: EdgeInsets.symmetric(
         horizontal: 20,
       ),
-      width: Ukuranlayar.widht,
+      width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
           Container(
             margin: EdgeInsets.symmetric(vertical: 10),
-            height: Ukuranlayar.height / 4,
+            height: MediaQuery.of(context).size.height / 4,
             child: Image.asset(
               "images/sepatu.png",
               fit: BoxFit.cover,
@@ -179,7 +182,7 @@ class _DetailProdukState extends State<DetailProduk> {
 
   Widget deskripsi() {
     return Container(
-      width: Ukuranlayar.widht,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black),
           borderRadius: BorderRadius.only(
@@ -190,7 +193,7 @@ class _DetailProdukState extends State<DetailProduk> {
           children: [
             SizedBox(height: 10),
             SizedBox(
-              width: Ukuranlayar.widht,
+              width: MediaQuery.of(context).size.width,
               height: 70,
               child: Row(
                 children: [
@@ -227,7 +230,7 @@ class _DetailProdukState extends State<DetailProduk> {
             ),
             SizedBox(height: 10),
             SizedBox(
-              width: Ukuranlayar.widht,
+              width: MediaQuery.of(context).size.width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -271,7 +274,7 @@ class _DetailProdukState extends State<DetailProduk> {
             ),
             SizedBox(height: 10),
             SizedBox(
-              width: Ukuranlayar.widht,
+              width: MediaQuery.of(context).size.width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -313,7 +316,7 @@ class _DetailProdukState extends State<DetailProduk> {
             ),
             SizedBox(height: 10),
             SizedBox(
-              width: Ukuranlayar.widht,
+              width: MediaQuery.of(context).size.width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

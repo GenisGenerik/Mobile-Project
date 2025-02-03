@@ -1,4 +1,4 @@
-import 'package:app_e_commerce1/util/ukuranlayar.dart';
+
 import 'package:app_e_commerce1/util/utilitas.dart';
 import 'package:flutter/material.dart';
 
@@ -103,7 +103,7 @@ class _SearchState extends State<Search> {
           (index) {
             return SizedBox(
               height: 150,
-              width: Ukuranlayar.widht / 1.2,
+              width: MediaQuery.of(context).size.width / 1.2,
               child: Card(
                 clipBehavior: Clip.antiAlias,
                 shape: RoundedRectangleBorder(
@@ -134,8 +134,8 @@ class _SearchState extends State<Search> {
 
   Widget navbutton(String gambar, int index) {
     return Container(
-      width: Ukuranlayar.widht / 7,
-      height: Ukuranlayar.widht / 7,
+      width: MediaQuery.of(context).size.width / 7,
+      height: MediaQuery.of(context).size.width / 7,
       decoration: BoxDecoration(
         color: warnaBackground,
         borderRadius: BorderRadius.circular(10),
