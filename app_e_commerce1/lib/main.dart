@@ -2,6 +2,7 @@
 
 import 'package:app_e_commerce1/page/cart.dart';
 import 'package:app_e_commerce1/page/detailproduk.dart';
+import 'package:app_e_commerce1/page/pembayaran.dart';
 import 'package:app_e_commerce1/page/produk.dart';
 import 'package:app_e_commerce1/page/search.dart';
 import 'package:app_e_commerce1/page/utama.dart';
@@ -21,13 +22,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Aplikasi Ecommers',
-      initialRoute: '/',
+      initialRoute: '/pembayaran',
+      
       routes: {
         '/' : (context) => Utama(),
         '/search' :(context) =>Search(),
         '/produk' : (context) =>Produk(),
         '/detailproduk':(context)=>DetailProduk(),
-        '/cart':(context)=>Cart()
+        '/cart':(context)=>Cart(),
+        '/pembayaran' : (context)=>Pembayaran()
       },
     );
   }
