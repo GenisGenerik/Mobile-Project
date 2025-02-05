@@ -32,7 +32,7 @@ class _CartState extends State<Cart> {
                                 color: Colors.black,
                                 style: BorderStyle.solid,
                               ),
-                              color: Colors.deepOrange),
+                             ),
                           child: Row(
                             children: [
                               Expanded(
@@ -49,7 +49,7 @@ class _CartState extends State<Cart> {
                                         width: 2),
                                   ),
                                   child: Image.asset(
-                                      fit: BoxFit.cover, 'images/sepatu.png'),
+                                      fit: BoxFit.cover, 'assets/images/sepatu.png'),
                                 ),
                               ),
                               Expanded(
@@ -85,13 +85,12 @@ class _CartState extends State<Cart> {
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
                                       Container(
-                                          width: 30,
-                                          height: 30,
+                                      
                                           decoration: BoxDecoration(
                                               shape: BoxShape.circle,
-                                              color: Colors.white),
+                                              color: warnaBackground),
                                           child: Center(
-                                              child: Text("10",
+                                              child: Text("10x",
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold)))),
@@ -100,7 +99,7 @@ class _CartState extends State<Cart> {
                                           height: 30,
                                           decoration: BoxDecoration(
                                               shape: BoxShape.circle,
-                                              color: Colors.white),
+                                              color: warnaBackground),
                                           child: Icon(Icons.delete_outline)),
                                     ],
                                   )),

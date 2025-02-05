@@ -101,19 +101,23 @@ class _SearchState extends State<Search> {
         children: List.generate(
           3,
           (index) {
-            return SizedBox(
-              height: 150,
-              width: MediaQuery.of(context).size.width / 1.2,
+            return ConstrainedBox(constraints: 
+            BoxConstraints(
+              maxWidth: 300,maxHeight: 170,
+
+            ),child: SizedBox(
+              height: MediaQuery.of(context).size.width,
+              width: MediaQuery.of(context).size.width ,
               child: Card(
                 clipBehavior: Clip.antiAlias,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
                 child: Image.asset(
-                  "images/dummy.jpg",
+                  "assets/images/dummy.jpg",
                   fit: BoxFit.cover,
                 ),
               ),
-            );
+            ),);
           },
         ),
       ),
@@ -142,7 +146,7 @@ class _SearchState extends State<Search> {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        child: Image.asset('icons/$gambar'),
+        child: Image.asset('assets/icons/$gambar'),
       ),
     );
   }

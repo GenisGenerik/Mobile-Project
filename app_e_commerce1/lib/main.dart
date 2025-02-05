@@ -7,6 +7,7 @@ import 'package:app_e_commerce1/page/produk.dart';
 import 'package:app_e_commerce1/page/search.dart';
 import 'package:app_e_commerce1/page/utama.dart';
 
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Aplikasi Ecommers',
-      initialRoute: '/pembayaran',
+      initialRoute: '/produk',
       
       routes: {
         '/' : (context) => Utama(),
@@ -30,8 +31,14 @@ class MyApp extends StatelessWidget {
         '/produk' : (context) =>Produk(),
         '/detailproduk':(context)=>DetailProduk(),
         '/cart':(context)=>Cart(),
-        '/pembayaran' : (context)=>Pembayaran()
+        '/pembayaran' : (context)=>Pembayaran(),
+   
       },
+    
     );
   }
 }
+
+
+
+

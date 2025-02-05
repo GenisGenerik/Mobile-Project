@@ -22,12 +22,12 @@ class _DetailProdukState extends State<DetailProduk> {
   ];
 
   List produk = [
-    "images/sepatu.png",
-    "images/sepatu.png",
-    "images/sepatu.png",
-    "images/sepatu.png",
-    "images/sepatu.png",
-    "images/sepatu.png",
+    "assets/images/sepatu.png",
+    "assets/images/sepatu.png",
+    "assets/images/sepatu.png",
+    "assets/images/sepatu.png",
+    "assets/images/sepatu.png",
+    "assets/images/sepatu.png",
   ];
 
   int produkSelected = 0;
@@ -144,7 +144,7 @@ class _DetailProdukState extends State<DetailProduk> {
             margin: EdgeInsets.symmetric(vertical: 10),
             height: MediaQuery.of(context).size.height / 4,
             child: Image.asset(
-              "images/sepatu.png",
+              "assets/images/sepatu.png",
               fit: BoxFit.cover,
             ),
           ),
@@ -160,8 +160,8 @@ class _DetailProdukState extends State<DetailProduk> {
                     });
                   },
                   child: Container(
-                    width: produkSelected == index ? 90 : 70,
-                    height: produkSelected == index ? 90 : 70,
+                    width: produkSelected == index ? 80 : 60,
+                    height: produkSelected == index ? 80 : 60,
                     padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
@@ -192,9 +192,10 @@ class _DetailProdukState extends State<DetailProduk> {
         child: Column(
           children: [
             SizedBox(height: 10),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: 70,
+            ConstrainedBox(constraints: BoxConstraints(
+              maxWidth:  MediaQuery.of(context).size.width,
+              maxHeight: 70
+            ),child: IntrinsicHeight(
               child: Row(
                 children: [
                   Expanded(
@@ -202,7 +203,7 @@ class _DetailProdukState extends State<DetailProduk> {
                     child: Container(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        "Nama Produk",
+                        "Nama Produk ",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 25),
                       ),
@@ -227,7 +228,7 @@ class _DetailProdukState extends State<DetailProduk> {
                   )
                 ],
               ),
-            ),
+            ),),
             SizedBox(height: 10),
             SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -250,8 +251,8 @@ class _DetailProdukState extends State<DetailProduk> {
                           },
                           child: Container(
                             alignment: Alignment.center,
-                            width: 50,
-                            height: 50,
+                            width: 40,
+                            height: 40,
                             margin: EdgeInsets.only(right: 10),
                             decoration: BoxDecoration(
                                 border: Border.all(color: Colors.black),
@@ -293,8 +294,8 @@ class _DetailProdukState extends State<DetailProduk> {
                             });
                           },
                           child: Container(
-                            width: 50,
-                            height: 50,
+                            width: 40,
+                            height: 40,
                             alignment: Alignment.center,
                             margin: EdgeInsets.only(right: 10),
                             decoration: BoxDecoration(
