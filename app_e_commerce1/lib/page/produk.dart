@@ -9,11 +9,11 @@ class Produk extends StatefulWidget {
 
 class _ProdukState extends State<Produk> {
   List produk = [
-    {'nama': "NIKIE S20 ", 'gambar': 'sepatu.png'},
-    {'nama': 'Polo Polos ', 'gambar': 'baju.png'},
-    {'nama': 'Jeans Cewe', 'gambar': 'celana.png'},
-    {'nama': 'Kaviar 12 Karat', 'gambar': 'jam.png'},
-    {'nama': 'Topi Outdoor', 'gambar': 'topi.png'},
+    {'nama': "NIKIE S20 ", 'gambar': 'sepatu.png'  ,'harga':'Rp.120.000' },
+    {'nama': 'Polo Polos ', 'gambar': 'baju.png'   ,'harga':'Rp.240.000' },
+    {'nama': 'Jeans Cewe', 'gambar': 'celana.png'  ,'harga':'Rp.90.000' },
+    {'nama': 'Kaviar 12 Karat', 'gambar': 'jam.png','harga':'Rp.2.250.000' },
+    {'nama': 'Topi Outdoor', 'gambar': 'topi.png'  ,'harga':'Rp.100.000' },
   ];
 
   @override
@@ -54,7 +54,9 @@ class _ProdukState extends State<Produk> {
   }
 
   Widget cardProduk(int index) {
-    return ConstrainedBox(
+    return InkWell(
+      onTap: () => Navigator.pushNamed(context, '/detailproduk'),
+      child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 180, maxHeight: 300),
         child: SizedBox(
           width: MediaQuery.of(context).size.width / 2,
@@ -150,9 +152,9 @@ class _ProdukState extends State<Produk> {
                                     MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text("Rp.100.000",
+                                  Text(produk[index]['harga'],
                                       style: TextStyle(
-                                          fontWeight: FontWeight.bold)),
+                                          fontWeight: FontWeight.bold,fontSize: 12),maxLines: 1,),
                                   Text(
                                     "10rb+ Terjual",
                                     style: TextStyle(fontSize: 10),
@@ -165,6 +167,7 @@ class _ProdukState extends State<Produk> {
                       )),
                 ],
               )),
-        ));
+        )),
+    );
   }
 }

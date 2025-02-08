@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Aplikasi Ecommers',
-      initialRoute: '/produk',
+      initialRoute: '/pembayaran',
       
       routes: {
         '/' : (context) => Utama(),
