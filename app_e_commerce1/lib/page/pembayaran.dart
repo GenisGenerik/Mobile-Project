@@ -49,7 +49,7 @@ class _PembayaranState extends State<Pembayaran> {
 
   List kota = ['bogor', 'bandung', 'jakarta', 'serang', 'surabaya'];
   int? isi;
-  bool expand = true;
+  int? posisiexpand;
 
   @override
   Widget build(BuildContext context) {
@@ -210,8 +210,13 @@ class _PembayaranState extends State<Pembayaran> {
               const SizedBox(height: 15),
               Column(
                 children: List.generate(metode.length, (index) {
+                  bool expand = posisiexpand == index;
                   return InkWell(
-                    onTap: () => expand = true,
+                    onTap: () {
+                      setState(() {
+                        posisiexpand = index;
+                      });
+                    },
                     child: Card(
                       shadowColor: Colors.black,
                       elevation: 5,
@@ -219,31 +224,51 @@ class _PembayaranState extends State<Pembayaran> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 15, horizontal: 15),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    metode[index]['title'],
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 15, horizontal: 15),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  metode[index]['title'],
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  Icon(Icons.arrow_drop_down)
-                                ],
+                                ),
+                                Icon(expand
+                                    ? Icons.arrow_drop_up
+                                    : Icons.arrow_drop_down),
+                              ],
+                            ),
+                            if (expand)
+                              GridView.builder(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 5,
+                                  crossAxisSpacing: 10,
+                                  mainAxisSpacing: 10,
+                                ),
+                                itemCount: metode[index]['gambar'].length,
+                                itemBuilder: (context, i) {
+                                  return Image.asset(
+                                    metode[index]['gambar'][i],
+                                    fit: BoxFit.cover,
+                                  );
+                                },
                               ),
-                            ],
-                          )),
+                          ],
+                        ),
+                      ),
                     ),
                   );
                 }),
-              ),
+              )
             ],
           ),
         ),
